@@ -66,47 +66,46 @@ const tiles: Tile[] = [
 </script>
 
 <template>
-    <section id="templates" class="relative py-24 sm:py-32">
+    <section id="templates" class="relative bg-background py-16 sm:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
                 <div class="max-w-2xl">
-                    <p class="text-xs font-medium tracking-widest text-[var(--accent-lime)] uppercase">
+                    <p class="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase">
                         Content Creator Templates Library
                     </p>
-                    <h2 class="mt-3 text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl">
+                    <h2 class="font-display mt-4 text-4xl font-medium tracking-[-0.03em] text-foreground sm:text-6xl">
                         <NumberTicker :value="100000" :format="(n) => Math.round(n).toLocaleString()" />+
-                        assets, one subscription.
+                        <span class="block italic font-light">assets, one subscription.</span>
                     </h2>
                 </div>
-                <p class="max-w-md text-base text-white/60">
-                    Professional editors in Hollywood use these. Now they
-                    live in your timeline — no $130 packs, no endless
-                    search.
+                <p class="max-w-md text-base text-muted-foreground">
+                    Professional editors in Hollywood use these. Now they live in your timeline — no $130 packs, no
+                    endless search.
                 </p>
             </div>
 
             <div class="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:auto-rows-[14rem]">
                 <article v-for="tile in tiles" :key="tile.name"
-                    :class="[tile.span, 'group relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900']">
+                    :class="[tile.span, 'group relative overflow-hidden border border-border bg-foreground transition-transform duration-300 hover:-translate-y-1']">
                     <img :src="tile.image" :alt="`${tile.name} preview`" loading="lazy"
-                        class="absolute inset-0 h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-80" />
+                        class="absolute inset-0 h-full w-full object-cover opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-95" />
                     <div aria-hidden="true"
-                        class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                        class="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/40 to-transparent" />
                     <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1"
                         :style="{ backgroundColor: tile.accent }" />
 
                     <div class="relative flex h-full flex-col justify-end p-6 sm:p-7">
                         <div class="flex items-baseline gap-2">
-                            <span class="text-4xl font-semibold tracking-tight text-white sm:text-5xl"
+                            <span class="font-display text-4xl font-medium tracking-tight sm:text-5xl"
                                 :style="{ color: tile.accent }">
                                 <NumberTicker :value="tile.count" :format="(n) => Math.round(n).toLocaleString()" />{{
-                                tile.suffix }}
+                                    tile.suffix }}
                             </span>
                         </div>
-                        <h3 class="mt-1 text-xl font-semibold text-white sm:text-2xl">
+                        <h3 class="font-display mt-2 text-2xl font-medium text-background sm:text-3xl">
                             {{ tile.name }}
                         </h3>
-                        <p class="mt-2 max-w-md text-sm text-white/70">
+                        <p class="mt-2 max-w-md text-sm text-background/75">
                             {{ tile.blurb }}
                         </p>
                     </div>

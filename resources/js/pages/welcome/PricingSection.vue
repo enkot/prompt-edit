@@ -27,90 +27,87 @@ const subscription = [
 </script>
 
 <template>
-    <section id="pricing" class="relative py-24 sm:py-32">
+    <section id="pricing" class="relative bg-background py-16 sm:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
-                <p class="text-xs font-medium tracking-widest text-[var(--accent-lime)] uppercase">
+                <p class="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase">
                     Simple pricing
                 </p>
-                <h2 class="mt-3 text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl">
-                    Pay for what you use.
+                <h2 class="font-display mt-4 text-4xl font-medium tracking-[-0.03em] text-foreground sm:text-6xl">
+                    Pay for <span class="italic font-light">what you use.</span>
                 </h2>
-                <p class="mt-4 text-lg text-white/60">
-                    Think of credits like gas — drop them in, drive wherever
-                    you want. Or subscribe for monthly fuel + the full
-                    template library.
+                <p class="mt-5 text-base text-muted-foreground sm:text-lg">
+                    Credits are like gas — drop them in, drive wherever you want.
+                    Or subscribe for monthly fuel and the full template library.
                 </p>
             </div>
 
-            <div class="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
-                <div
-                    class="relative flex flex-col rounded-3xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur">
-                    <div class="flex items-center gap-2 text-xs font-semibold tracking-widest text-white/50 uppercase">
+            <div class="mx-auto mt-14 grid max-w-5xl gap-0 border border-border md:grid-cols-2">
+                <div class="relative flex flex-col bg-card p-8 sm:p-10">
+                    <div
+                        class="flex items-center gap-2 font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase">
                         <Zap class="size-3.5" />
                         One-time
                     </div>
-                    <h3 class="mt-3 text-2xl font-semibold text-white">Credit pack</h3>
-                    <p class="mt-2 text-sm text-white/60">
-                        Best for trying every tool without locking into a
-                        monthly bill.
+                    <h3 class="font-display mt-3 text-3xl font-medium text-foreground">Credit pack</h3>
+                    <p class="mt-2 text-sm text-muted-foreground">
+                        Best for trying every tool without locking into a monthly bill.
                     </p>
                     <div class="mt-6 flex items-baseline gap-2">
-                        <span class="text-5xl font-semibold tracking-tight text-white">$98</span>
-                        <span class="text-sm text-white/50">one time</span>
+                        <span class="font-display text-6xl font-medium tracking-tight text-foreground">$98</span>
+                        <span class="text-sm text-muted-foreground">one time</span>
                     </div>
-                    <p class="mt-1 text-sm text-[var(--accent-lime)]">
-                        Get $110 worth of credits · 10% bonus
+                    <p class="mt-2 font-mono text-xs tracking-wider uppercase" style="color: var(--accent-magenta);">
+                        $110 in credits · 10% bonus
                     </p>
-                    <ul class="mt-8 space-y-3 text-sm text-white/80">
+                    <ul class="mt-8 space-y-3 text-sm text-foreground/90">
                         <li v-for="item in oneTime" :key="item" class="flex items-start gap-2.5">
-                            <Check class="mt-0.5 size-4 shrink-0 text-[var(--accent-lime)]" />
+                            <Check class="mt-0.5 size-4 shrink-0" style="color: var(--accent-lime);" />
                             <span>{{ item }}</span>
                         </li>
                     </ul>
                     <Link :href="canRegister ? register.url() : login.url()" class="mt-8 block">
                         <Button variant="outline" size="lg"
-                            class="w-full border-white/15 bg-white/5 text-white hover:bg-white/10 hover:text-white">
+                            class="w-full border-foreground/20 bg-background text-foreground hover:bg-secondary">
                             Claim deal
                         </Button>
                     </Link>
                 </div>
 
-                <div
-                    class="relative flex flex-col overflow-hidden rounded-3xl border border-[var(--accent-lime)]/30 bg-gradient-to-b from-[var(--accent-lime)]/[0.08] to-transparent p-8 backdrop-blur">
-                    <BorderBeam :size="320" :duration="10" :border-width="2" />
+                <div class="relative flex flex-col overflow-hidden bg-foreground p-8 text-background sm:p-10">
+                    <BorderBeam :size="380" :duration="10" :border-width="2" color-from="#b6eb27" color-to="#06b6d4" />
                     <div class="flex items-center justify-between">
-                        <div
-                            class="flex items-center gap-2 text-xs font-semibold tracking-widest text-[var(--accent-lime)] uppercase">
+                        <div class="flex items-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase"
+                            style="color: var(--accent-lime);">
                             <InfinityIcon class="size-3.5" />
                             Subscription
                         </div>
                         <span
-                            class="rounded-full bg-[var(--accent-lime)] px-2.5 py-1 text-[10px] font-bold tracking-wider text-black uppercase">
+                            class="px-2.5 py-1 font-mono text-[10px] font-bold tracking-wider text-foreground uppercase"
+                            style="background-color: var(--accent-lime);">
                             Most popular
                         </span>
                     </div>
-                    <h3 class="mt-3 text-2xl font-semibold text-white">All-access</h3>
-                    <p class="mt-2 text-sm text-white/70">
-                        Save even more on credits and unlock the full
-                        Content Creator Templates Library.
+                    <h3 class="font-display mt-3 text-3xl font-medium">All-access</h3>
+                    <p class="mt-2 text-sm text-background/70">
+                        Save more on credits and unlock the full Content Creator Templates Library.
                     </p>
                     <div class="mt-6 flex items-baseline gap-2">
-                        <span class="text-5xl font-semibold tracking-tight text-white">$39</span>
-                        <span class="text-sm text-white/60">/ month</span>
+                        <span class="font-display text-6xl font-medium tracking-tight">$39</span>
+                        <span class="text-sm text-background/60">/ month</span>
                     </div>
-                    <p class="mt-1 text-sm text-[var(--accent-lime)]">
+                    <p class="mt-2 font-mono text-xs tracking-wider uppercase" style="color: var(--accent-lime);">
                         $49 credits/mo · 20% lifetime bonus
                     </p>
-                    <ul class="mt-8 space-y-3 text-sm text-white/85">
+                    <ul class="mt-8 space-y-3 text-sm text-background/90">
                         <li v-for="item in subscription" :key="item" class="flex items-start gap-2.5">
-                            <Check class="mt-0.5 size-4 shrink-0 text-[var(--accent-lime)]" />
+                            <Check class="mt-0.5 size-4 shrink-0" style="color: var(--accent-lime);" />
                             <span>{{ item }}</span>
                         </li>
                     </ul>
                     <Link :href="canRegister ? register.url() : login.url()" class="mt-8 block">
-                        <Button size="lg"
-                            class="w-full bg-[var(--accent-lime)] text-black hover:bg-[var(--accent-lime)]/90">
+                        <Button size="lg" class="w-full font-medium text-foreground hover:opacity-90"
+                            style="background-color: var(--accent-lime);">
                             Start all-access
                         </Button>
                     </Link>

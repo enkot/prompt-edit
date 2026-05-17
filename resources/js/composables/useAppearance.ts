@@ -75,12 +75,14 @@ export function initializeTheme(): void {
         return;
     }
 
-    // Initialize theme from saved preference or default to system...
+    // Only honor an explicit user choice — never auto-apply system dark mode.
     const savedAppearance = getStoredAppearance();
-    updateTheme(savedAppearance || 'system');
 
-    // Set up system theme change listener...
-    mediaQuery()?.addEventListener('change', handleSystemThemeChange);
+    if (savedAppearance && savedAppearance !== 'system') {
+        updateTheme(savedAppearance);
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
 }
 
 const appearance = ref<Appearance>('system');

@@ -5,25 +5,26 @@ import { register, login } from '@/routes';
 import { ArrowRight, PlayCircle, Sparkles } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { BorderBeam } from '@/components/ui/border-beam';
-import { DotPattern } from '@/components/ui/pattern-background';
-import Spotlight from '@/components/inspira/Spotlight.vue';
+import { VideoText } from '@/components/ui/video-text';
+import { LiquidBackground } from '@/components/ui/liquid-background';
 
 defineProps<{ canRegister: boolean }>();
 
 const partners = [
-    { name: 'Veo', color: 'var(--accent-cyan)', rotate: '-3deg' },
-    { name: 'Kling', color: 'var(--accent-magenta)', rotate: '2deg' },
-    { name: 'Suno', color: 'var(--accent-lime)', rotate: '-5deg' },
-    { name: 'ElevenLabs', color: 'var(--accent-violet)', rotate: '4deg' },
-    { name: 'Nano Banana', color: 'var(--accent-amber)', rotate: '-2deg' },
-    { name: 'Ideogram', color: 'var(--accent-cyan)', rotate: '5deg' },
-    { name: 'Heygen', color: 'var(--accent-magenta)', rotate: '-4deg' },
-    { name: 'Grok', color: 'var(--accent-lime)', rotate: '3deg' },
+    { name: 'Veo', color: 'var(--accent-cyan)' },
+    { name: 'Kling', color: 'var(--accent-magenta)' },
+    { name: 'Suno', color: 'var(--accent-lime)' },
+    { name: 'ElevenLabs', color: 'var(--accent-violet)' },
+    { name: 'Nano Banana', color: 'var(--accent-amber)' },
+    { name: 'Ideogram', color: 'var(--accent-cyan)' },
+    { name: 'Heygen', color: 'var(--accent-magenta)' },
+    { name: 'Grok', color: 'var(--accent-lime)' },
 ];
 
 const videoPlaying = ref(false);
-const heroThumb =
-    'https://embed-ssl.wistia.com/deliveries/57cb867d7a2e5b7cd26e2c5352e678b46243e31d.webp?image_crop_resized=1920x1080';
+const heroThumb = '/thumbnail.png';
+
+const videoTextSrc = '/ocean-small.webm';
 
 function playVideo() {
     videoPlaying.value = true;
@@ -31,97 +32,98 @@ function playVideo() {
 </script>
 
 <template>
-    <section id="top" class="relative overflow-hidden">
-        <DotPattern :width="22" :height="22" :cr="1"
-            class="[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)] fill-white/10" />
-        <!-- <div aria-hidden="true"
-            class="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(196,242,76,0.18),transparent)]" /> -->
+    <section id="top" class="relative isolate overflow-hidden bg-background pt-24 pb-12 sm:pt-28 sm:pb-16">
+        <div aria-hidden="true"
+            class="pointer-events-none absolute -top-32 right-[-10%] -z-10 h-[640px] w-[640px] rotate-6 opacity-70"
+            style="mask-image: radial-gradient(closest-side, black 55%, transparent 90%);
+                   -webkit-mask-image: radial-gradient(closest-side, black 55%, transparent 90%);">
+            <LiquidBackground class="size-full" />
+        </div>
 
-        <Spotlight class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
-            <div class="relative grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
-                <div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-12">
+                <div class="animate-reveal-up max-w-4xl">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur">
-                        <Sparkles class="size-3.5 text-[var(--accent-lime)]" />
+                        class="inline-flex items-center gap-2 border border-border bg-card px-3 py-1 font-mono text-[11px] tracking-[0.25em] text-foreground/80 uppercase">
+                        <Sparkles class="size-3.5" :stroke-width="2.5" style="color: var(--accent-magenta);" />
                         Pay-as-you-go AI marketplace
                     </div>
 
+                    <div class="flex-col mt-6 h-[10vw] min-h-[110px] max-h-[220px] w-full">
+                        <VideoText :src="videoTextSrc" :font-size="10" font-weight="800" class="size-full">
+                            The grocery store
+                        </VideoText>
+                    </div>
+
                     <h1
-                        class="mt-6 font-sans text-5xl font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
-                        The grocery store
-                        <span class="block">
-                            for
-                            <span class="relative inline-block text-[var(--accent-lime)]">
-                                AI tools.
-                                <svg class="absolute -bottom-3 left-0 w-full" height="14" viewBox="0 0 200 14"
-                                    fill="none" aria-hidden="true">
-                                    <path d="M2 11 Q 50 2, 100 7 T 198 4" stroke="currentColor" stroke-width="3"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </span>
-                        </span>
+                        class="font-display max-w-3xl text-balance text-4xl font-medium leading-[1.02] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-6xl">
+                        for
+                        <span class="italic font-light">AI tools.</span>
                     </h1>
 
-                    <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-                        One place for every major AI model — image, video,
-                        audio, and editing plugins. No subscriptions. Just
-                        load credits and create.
+                    <p class="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                        Every major AI model — image, video, audio, and editing plugins —
+                        in one place. No subscriptions. Just load credits and create.
                     </p>
 
                     <div class="mt-8 flex flex-wrap items-center gap-3">
                         <Link :href="canRegister ? register.url() : login.url()">
                             <Button size="lg"
-                                class="group h-12 bg-[var(--accent-lime)] px-6 text-base text-black hover:bg-[var(--accent-lime)]/90">
+                                class="group h-12 px-6 text-base font-medium text-foreground hover:opacity-90"
+                                style="background-color: var(--accent-lime);">
                                 Start creating
                                 <ArrowRight class="size-4 transition-transform group-hover:translate-x-1" />
                             </Button>
                         </Link>
                         <a href="#video">
                             <Button size="lg" variant="outline"
-                                class="h-12 border-white/15 bg-white/5 px-5 text-base text-white hover:bg-white/10 hover:text-white">
+                                class="h-12 border-foreground/15 bg-card px-5 text-base text-foreground hover:bg-secondary">
                                 <PlayCircle class="size-4" />
                                 Watch the demo
                             </Button>
                         </a>
                     </div>
 
-                    <div class="mt-10 flex items-center gap-6 text-sm text-white/50">
+                    <div class="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
                         <div>
-                            <div class="text-2xl font-semibold text-white">40+</div>
+                            <div class="font-display text-2xl font-medium text-foreground">40+</div>
                             <div>AI models</div>
                         </div>
-                        <div class="h-8 w-px bg-white/10" />
+                        <div class="h-8 w-px bg-border" />
                         <div>
-                            <div class="text-2xl font-semibold text-white">$0</div>
+                            <div class="font-display text-2xl font-medium text-foreground">$0</div>
                             <div>Subscription</div>
                         </div>
-                        <div class="h-8 w-px bg-white/10" />
+                        <div class="h-8 w-px bg-border" />
                         <div>
-                            <div class="text-2xl font-semibold text-white">30-day</div>
+                            <div class="font-display text-2xl font-medium text-foreground">30-day</div>
                             <div>Money-back</div>
                         </div>
                     </div>
                 </div>
 
-                <div id="video" class="relative">
+                <div id="video" class="animate-reveal-up-slow relative mx-auto w-full max-w-5xl">
                     <div
-                        class="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)]">
-                        <BorderBeam :size="260" :duration="12" :border-width="2" />
+                        class="relative aspect-video w-full overflow-hidden border border-border bg-foreground shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]">
+                        <BorderBeam :size="320" :duration="14" :border-width="2" color-from="#b6eb27"
+                            color-to="#06b6d4" />
 
                         <template v-if="!videoPlaying">
                             <img :src="heroThumb" alt="Prompt Edit demo video preview"
-                                class="absolute inset-0 h-full w-full object-cover opacity-90" loading="lazy" />
+                                class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
                             <div aria-hidden="true"
-                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                                class="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
                             <button type="button" class="group absolute inset-0 grid place-items-center"
                                 aria-label="Play demo video" @click="playVideo">
                                 <span class="relative grid place-items-center">
+                                    <span class="animate-pulse-ring absolute inset-0 rounded-full"
+                                        style="background-color: rgba(182, 235, 39, 0.5);" />
                                     <span
-                                        class="animate-pulse-ring absolute inset-0 rounded-full bg-[var(--accent-lime)]/40" />
+                                        class="animate-pulse-ring absolute inset-0 rounded-full [animation-delay:0.6s]"
+                                        style="background-color: rgba(182, 235, 39, 0.35);" />
                                     <span
-                                        class="animate-pulse-ring absolute inset-0 rounded-full bg-[var(--accent-lime)]/30 [animation-delay:0.6s]" />
-                                    <span
-                                        class="relative grid size-20 place-items-center rounded-full bg-[var(--accent-lime)] text-black shadow-2xl transition-transform group-hover:scale-110">
+                                        class="relative grid size-20 place-items-center rounded-full text-foreground shadow-2xl transition-transform group-hover:scale-110"
+                                        style="background-color: var(--accent-lime);">
                                         <svg viewBox="0 0 24 24" class="size-8 translate-x-0.5" fill="currentColor"
                                             aria-hidden="true">
                                             <path d="M8 5v14l11-7z" />
@@ -130,8 +132,8 @@ function playVideo() {
                                 </span>
                             </button>
                             <div
-                                class="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-black/60 px-3 py-1.5 text-xs text-white/90 backdrop-blur">
-                                <span class="size-1.5 animate-pulse rounded-full bg-[var(--accent-lime)]" />
+                                class="absolute bottom-4 left-4 flex items-center gap-2 bg-background/90 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur">
+                                <span class="size-1.5 animate-pulse" style="background-color: var(--accent-lime);" />
                                 Watch in 90 seconds
                             </div>
                         </template>
@@ -139,12 +141,9 @@ function playVideo() {
                             src="https://fast.wistia.net/embed/iframe/abcdefghij?autoPlay=true" title="Prompt Edit demo"
                             allow="autoplay; fullscreen" allowfullscreen />
                     </div>
-
-                    <div aria-hidden="true"
-                        class="pointer-events-none absolute -inset-x-6 -bottom-6 -z-10 h-32 rounded-full bg-[radial-gradient(closest-side,rgba(34,211,238,0.18),transparent)] blur-2xl" />
                 </div>
-            </div>
 
-        </Spotlight>
+            </div>
+        </div>
     </section>
 </template>

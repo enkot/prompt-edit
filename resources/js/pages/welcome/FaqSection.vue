@@ -43,19 +43,18 @@ const faqs = [
 </script>
 
 <template>
-    <section id="faq" class="relative py-24 sm:py-32">
+    <section id="faq" class="relative bg-background py-16 sm:py-20">
         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <p class="text-xs font-medium tracking-widest text-[var(--accent-lime)] uppercase">
+                <p class="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase">
                     Questions, answered
                 </p>
-                <h2 class="mt-3 text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl">
-                    Commonly asked questions
+                <h2 class="font-display mt-4 text-4xl font-medium tracking-[-0.03em] text-foreground sm:text-6xl">
+                    Commonly asked <span class="italic font-light">questions.</span>
                 </h2>
             </div>
 
-            <Accordion type="single" collapsible
-                class="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] px-6 sm:px-8">
+            <Accordion type="single" collapsible class="mt-12 border border-border bg-card px-6 sm:px-8">
                 <AccordionItem v-for="(faq, idx) in faqs" :key="faq.q" :value="`item-${idx}`">
                     <AccordionTrigger>{{ faq.q }}</AccordionTrigger>
                     <AccordionContent>{{ faq.a }}</AccordionContent>

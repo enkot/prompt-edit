@@ -1,0 +1,3 @@
+
+# Local mkcert TLS certificates
+docker/nginx/certs/*.pem
