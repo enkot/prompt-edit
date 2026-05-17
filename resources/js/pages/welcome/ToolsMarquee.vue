@@ -18,7 +18,7 @@ const tools = [
 </script>
 
 <template>
-    <section class="relative overflow-hidden border-y border-border bg-card py-8">
+    <section class="relative overflow-hidden border-y border-gray-300 bg-card py-8">
 
         <div class="flex justify-center mb-6">
             <p class="font-mono text-[10px] tracking-[0.35em] text-muted-foreground uppercase">

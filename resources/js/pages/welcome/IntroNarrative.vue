@@ -27,7 +27,7 @@ const cards = [
 </script>
 
 <template>
-    <section class="relative border-y border-border bg-background py-14 sm:py-18">
+    <section class="relative bg-background py-14 sm:py-18">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-3xl text-center">
                 <p class="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase">

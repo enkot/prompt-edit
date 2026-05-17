@@ -31,7 +31,7 @@ withDefaults(defineProps<{ canRegister?: boolean }>(), { canRegister: true });
     </Head>
 
     <div
-        class="relative min-h-screen overflow-x-clip bg-background text-foreground antialiased selection:bg-[var(--accent-lime)] selection:text-foreground">
+        class="welcome-aggressive relative min-h-screen overflow-x-clip bg-background text-foreground antialiased selection:bg-[var(--accent-lime)] selection:text-foreground">
         <SiteNav :can-register="canRegister" />
         <main>
             <HeroSection :can-register="canRegister" />

@@ -56,10 +56,10 @@ function playVideo() {
                         </VideoText>
                     </div>
 
-                    <h1 class=" font-display mx-auto max-w-3xl text-balance text-4xl font-medium leading-[1.02]
-                            tracking-[-0.03em] text-foreground sm:text-5xl lg:text-6xl">
+                    <h1 class=" font-display mx-auto max-w-3xl text-balance text-5xl font-black leading-[0.95]
+                            tracking-[-0.04em] text-foreground sm:text-6xl lg:text-6xl">
                         The grocery store for
-                        <span class="italic font-light">AI tools.</span>
+                        <span class="italic font-light normal-case">AI tools.</span>
                     </h1>
 
                     <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -70,7 +70,7 @@ function playVideo() {
                     <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
                         <Link :href="canRegister ? register.url() : login.url()">
                             <Button size="lg"
-                                class="group h-12 px-6 text-base font-medium text-foreground hover:opacity-90"
+                                class="group h-12 border-2 border-foreground px-6 text-base font-bold uppercase tracking-wider text-foreground hover:opacity-90"
                                 style="background-color: var(--accent-lime);">
                                 Start creating
                                 <ArrowRight class="size-4 transition-transform group-hover:translate-x-1" />
@@ -78,7 +78,7 @@ function playVideo() {
                         </Link>
                         <a href="#video">
                             <Button size="lg" variant="outline"
-                                class="h-12 border-foreground/15 bg-card px-5 text-base text-foreground hover:bg-secondary">
+                                class="h-12 border-2 border-foreground bg-card px-5 text-base font-bold uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background">
                                 <PlayCircle class="size-4" />
                                 Watch the demo
                             </Button>

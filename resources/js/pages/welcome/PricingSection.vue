@@ -54,7 +54,7 @@ const subscription = [
                         Best for trying every tool without locking into a monthly bill.
                     </p>
                     <div class="mt-6 flex items-baseline gap-2">
-                        <span class="font-display text-6xl font-medium tracking-tight text-foreground">$98</span>
+                        <span class="font-display text-6xl font-black tracking-[-0.04em] text-foreground">$98</span>
                         <span class="text-sm text-muted-foreground">one time</span>
                     </div>
                     <p class="mt-2 font-mono text-xs tracking-wider uppercase" style="color: var(--accent-magenta);">
@@ -68,7 +68,7 @@ const subscription = [
                     </ul>
                     <Link :href="canRegister ? register.url() : login.url()" class="mt-8 block">
                         <Button variant="outline" size="lg"
-                            class="w-full border-foreground/20 bg-background text-foreground hover:bg-secondary">
+                            class="w-full border-2 border-foreground bg-background font-bold uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background">
                             Claim deal
                         </Button>
                     </Link>
@@ -93,7 +93,7 @@ const subscription = [
                         Save more on credits and unlock the full Content Creator Templates Library.
                     </p>
                     <div class="mt-6 flex items-baseline gap-2">
-                        <span class="font-display text-6xl font-medium tracking-tight">$39</span>
+                        <span class="font-display text-6xl font-black tracking-[-0.04em]">$39</span>
                         <span class="text-sm text-background/60">/ month</span>
                     </div>
                     <p class="mt-2 font-mono text-xs tracking-wider uppercase" style="color: var(--accent-lime);">
@@ -106,7 +106,8 @@ const subscription = [
                         </li>
                     </ul>
                     <Link :href="canRegister ? register.url() : login.url()" class="mt-8 block">
-                        <Button size="lg" class="w-full font-medium text-foreground hover:opacity-90"
+                        <Button size="lg"
+                            class="w-full border-2 border-background font-bold uppercase tracking-wider text-foreground hover:opacity-90"
                             style="background-color: var(--accent-lime);">
                             Start all-access
                         </Button>

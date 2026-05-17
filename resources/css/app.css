@@ -337,3 +337,59 @@
         @apply bg-background text-foreground;
     }
 }
+
+/*
+ * Aggressive landing theme — Artlist / Envato Elements vibe.
+ * Scoped to the marketing page so dashboard, auth, and settings
+ * keep their softer treatment.
+ */
+.welcome-aggressive {
+    /* Near-black borders sitting on the cream background. */
+    --border: hsl(0 0% 8%);
+    --input: hsl(0 0% 8%);
+    --sidebar-border: hsl(0 0% 8%);
+
+    /* Tighter, more editorial display headings. */
+    & .font-display {
+        font-weight: 700;
+        letter-spacing: -0.035em;
+    }
+
+    /* Bump default Tailwind 1px borders to a heavier 2px stroke. */
+    & .border {
+        border-width: 2px;
+    }
+
+    & .border-t {
+        border-top-width: 2px;
+    }
+
+    & .border-r {
+        border-right-width: 2px;
+    }
+
+    & .border-b {
+        border-bottom-width: 2px;
+    }
+
+    & .border-l {
+        border-left-width: 2px;
+    }
+
+    & .border-x {
+        border-left-width: 2px;
+        border-right-width: 2px;
+    }
+
+    & .border-y {
+        border-top-width: 2px;
+        border-bottom-width: 2px;
+    }
+}
+
+/* Allow .dark within the landing to still produce visible borders. */
+.dark .welcome-aggressive,
+.welcome-aggressive.dark {
+    --border: hsl(0 0% 25%);
+    --input: hsl(0 0% 25%);
+}

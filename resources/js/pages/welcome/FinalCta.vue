@@ -30,7 +30,8 @@ defineProps<{ canRegister: boolean }>();
 
             <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
                 <Link :href="canRegister ? register.url() : login.url()">
-                    <Button size="lg" class="group h-14 px-8 text-base font-medium text-foreground"
+                    <Button size="lg"
+                        class="group h-14 border-2 border-foreground px-8 text-base font-bold uppercase tracking-wider text-foreground"
                         style="background-color: var(--accent-lime);">
                         Grab the deal
                         <ArrowRight class="size-4 transition-transform group-hover:translate-x-1" />
@@ -38,7 +39,7 @@ defineProps<{ canRegister: boolean }>();
                 </Link>
                 <a href="#pricing">
                     <Button variant="outline" size="lg"
-                        class="h-14 border-background/30 bg-transparent px-6 text-base text-background hover:bg-background/10 hover:text-background">
+                        class="h-14 border-2 border-background bg-transparent px-6 text-base font-bold uppercase tracking-wider text-background hover:bg-background hover:text-foreground">
                         See pricing
                     </Button>
                 </a>
