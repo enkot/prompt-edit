@@ -64,7 +64,7 @@ const categories: Category[] = [
         title: 'Editing Plugins',
         eyebrow: 'Workflow',
         icon: Plug,
-        accent: 'var(--accent-amber)',
+        accent: '#d1d5db',
         foreground: 'text-foreground',
         span: 'lg:col-span-6',
         description:

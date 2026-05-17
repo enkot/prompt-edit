@@ -42,7 +42,7 @@ const testimonials = [
 </script>
 
 <template>
-    <section class="relative overflow-hidden bg-card py-16 sm:py-20">
+    <section class="relative overflow-hidden bg-[#ec4899] py-16 sm:py-20 [--muted-foreground:hsl(0_0%_15%)]">
         <div class="mx-auto mb-12 max-w-7xl px-4 text-center sm:px-6 lg:px-8">
             <p class="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase">
                 What creators are saying
@@ -53,9 +53,9 @@ const testimonials = [
         </div>
 
         <div aria-hidden="true"
-            class="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-card to-transparent" />
+            class="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#ec4899] to-transparent" />
         <div aria-hidden="true"
-            class="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-card to-transparent" />
+            class="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#ec4899] to-transparent" />
 
         <Marquee pause-on-hover :duration="'70s'" class="[--gap:1.25rem]">
             <figure v-for="t in testimonials" :key="t.author"

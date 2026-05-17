@@ -5,6 +5,9 @@ import HeroSection from './welcome/HeroSection.vue';
 import ToolsMarquee from './welcome/ToolsMarquee.vue';
 import IntroNarrative from './welcome/IntroNarrative.vue';
 import ToolCategories from './welcome/ToolCategories.vue';
+import ImageCapabilities from './welcome/ImageCapabilities.vue';
+import VideoCapabilities from './welcome/VideoCapabilities.vue';
+import AudioCapabilities from './welcome/AudioCapabilities.vue';
 import PluginsDetail from './welcome/PluginsDetail.vue';
 import SoundDemoSection from './welcome/SoundDemoSection.vue';
 import PricingSection from './welcome/PricingSection.vue';
@@ -35,6 +38,9 @@ withDefaults(defineProps<{ canRegister?: boolean }>(), { canRegister: true });
             <ToolsMarquee />
             <IntroNarrative />
             <ToolCategories />
+            <ImageCapabilities />
+            <VideoCapabilities />
+            <AudioCapabilities />
             <PluginsDetail />
             <SoundDemoSection />
             <PricingSection :can-register="canRegister" />

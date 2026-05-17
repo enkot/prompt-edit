@@ -17,7 +17,8 @@ const features = [
 </script>
 
 <template>
-    <section class="relative bg-background py-16 sm:py-20">
+    <section
+        class="relative bg-[#8b5cf6] py-16 sm:py-20 text-background [--foreground:hsl(0_0%_98%)] [--muted-foreground:hsl(0_0%_88%)] [--border:hsl(0_0%_100%/0.18)] [--card:hsl(0_0%_100%/0.08)]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid items-center gap-14 lg:grid-cols-2">
                 <div>

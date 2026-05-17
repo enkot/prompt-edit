@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { BorderBeam } from '@/components/ui/border-beam';
 import { VideoText } from '@/components/ui/video-text';
 import { LiquidBackground } from '@/components/ui/liquid-background';
+import { ContainerScroll } from '@/components/ui/container-scroll';
 
 defineProps<{ canRegister: boolean }>();
 
@@ -41,32 +42,32 @@ function playVideo() {
         </div>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col gap-12">
-                <div class="animate-reveal-up max-w-4xl">
-                    <div
+            <div class="flex flex-col items-center gap-3 text-center">
+                <div class="animate-reveal-up flex max-w-4xl flex-col items-center">
+                    <!-- <div
                         class="inline-flex items-center gap-2 border border-border bg-card px-3 py-1 font-mono text-[11px] tracking-[0.25em] text-foreground/80 uppercase">
                         <Sparkles class="size-3.5" :stroke-width="2.5" style="color: var(--accent-magenta);" />
                         Pay-as-you-go AI marketplace
-                    </div>
+                    </div> -->
 
-                    <div class="flex-col mt-6 h-[10vw] min-h-[110px] max-h-[220px] w-full">
-                        <VideoText :src="videoTextSrc" :font-size="10" font-weight="800" class="size-full">
-                            The grocery store
+                    <div class="mt-6 h-[12vw] min-h-[110px] max-h-[220px] w-full">
+                        <VideoText :src="videoTextSrc" :font-size="12" font-weight="800" text-anchor="middle">
+                            Prompt.EDIT
                         </VideoText>
                     </div>
 
-                    <h1
-                        class="font-display max-w-3xl text-balance text-4xl font-medium leading-[1.02] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-6xl">
-                        for
+                    <h1 class=" font-display mx-auto max-w-3xl text-balance text-4xl font-medium leading-[1.02]
+                            tracking-[-0.03em] text-foreground sm:text-5xl lg:text-6xl">
+                        The grocery store for
                         <span class="italic font-light">AI tools.</span>
                     </h1>
 
-                    <p class="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                         Every major AI model — image, video, audio, and editing plugins —
                         in one place. No subscriptions. Just load credits and create.
                     </p>
 
-                    <div class="mt-8 flex flex-wrap items-center gap-3">
+                    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
                         <Link :href="canRegister ? register.url() : login.url()">
                             <Button size="lg"
                                 class="group h-12 px-6 text-base font-medium text-foreground hover:opacity-90"
@@ -84,7 +85,7 @@ function playVideo() {
                         </a>
                     </div>
 
-                    <div class="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
+                    <div class="mt-10 flex items-center justify-center gap-6 text-sm text-muted-foreground">
                         <div>
                             <div class="font-display text-2xl font-medium text-foreground">40+</div>
                             <div>AI models</div>
@@ -102,45 +103,49 @@ function playVideo() {
                     </div>
                 </div>
 
-                <div id="video" class="animate-reveal-up-slow relative mx-auto w-full max-w-5xl">
-                    <div
-                        class="relative aspect-video w-full overflow-hidden border border-border bg-foreground shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]">
-                        <BorderBeam :size="320" :duration="14" :border-width="2" color-from="#b6eb27"
-                            color-to="#06b6d4" />
+                <div id="video" class="animate-reveal-up-slow relative w-full -mt-64 -mb-80">
+                    <ContainerScroll>
+                        <template #card>
+                            <div class="relative h-full w-full overflow-hidden">
+                                <!-- <BorderBeam :size="320" :duration="14" :border-width="2" color-from="#b6eb27"
+                                    color-to="#06b6d4" /> -->
 
-                        <template v-if="!videoPlaying">
-                            <img :src="heroThumb" alt="Prompt Edit demo video preview"
-                                class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
-                            <div aria-hidden="true"
-                                class="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
-                            <button type="button" class="group absolute inset-0 grid place-items-center"
-                                aria-label="Play demo video" @click="playVideo">
-                                <span class="relative grid place-items-center">
-                                    <span class="animate-pulse-ring absolute inset-0 rounded-full"
-                                        style="background-color: rgba(182, 235, 39, 0.5);" />
-                                    <span
-                                        class="animate-pulse-ring absolute inset-0 rounded-full [animation-delay:0.6s]"
-                                        style="background-color: rgba(182, 235, 39, 0.35);" />
-                                    <span
-                                        class="relative grid size-20 place-items-center rounded-full text-foreground shadow-2xl transition-transform group-hover:scale-110"
-                                        style="background-color: var(--accent-lime);">
-                                        <svg viewBox="0 0 24 24" class="size-8 translate-x-0.5" fill="currentColor"
-                                            aria-hidden="true">
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
-                                    </span>
-                                </span>
-                            </button>
-                            <div
-                                class="absolute bottom-4 left-4 flex items-center gap-2 bg-background/90 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur">
-                                <span class="size-1.5 animate-pulse" style="background-color: var(--accent-lime);" />
-                                Watch in 90 seconds
+                                <template v-if="!videoPlaying">
+                                    <img :src="heroThumb" alt="Prompt Edit demo video preview"
+                                        class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                                    <div aria-hidden="true"
+                                        class="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
+                                    <button type="button" class="group absolute inset-0 grid place-items-center"
+                                        aria-label="Play demo video" @click="playVideo">
+                                        <span class="relative grid place-items-center">
+                                            <span class="animate-pulse-ring absolute inset-0 rounded-full"
+                                                style="background-color: rgba(182, 235, 39, 0.5);" />
+                                            <span
+                                                class="animate-pulse-ring absolute inset-0 rounded-full [animation-delay:0.6s]"
+                                                style="background-color: rgba(182, 235, 39, 0.35);" />
+                                            <span
+                                                class="relative grid size-20 place-items-center rounded-full text-foreground shadow-2xl transition-transform group-hover:scale-110"
+                                                style="background-color: var(--accent-lime);">
+                                                <svg viewBox="0 0 24 24" class="size-8 translate-x-0.5"
+                                                    fill="currentColor" aria-hidden="true">
+                                                    <path d="M8 5v14l11-7z" />
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </button>
+                                    <div
+                                        class="absolute bottom-4 left-4 flex items-center gap-2 bg-background/90 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur">
+                                        <span class="size-1.5 animate-pulse"
+                                            style="background-color: var(--accent-lime);" />
+                                        Watch in 90 seconds
+                                    </div>
+                                </template>
+                                <iframe v-else class="absolute inset-0 h-full w-full"
+                                    src="https://fast.wistia.net/embed/iframe/abcdefghij?autoPlay=true"
+                                    title="Prompt Edit demo" allow="autoplay; fullscreen" allowfullscreen />
                             </div>
                         </template>
-                        <iframe v-else class="absolute inset-0 h-full w-full"
-                            src="https://fast.wistia.net/embed/iframe/abcdefghij?autoPlay=true" title="Prompt Edit demo"
-                            allow="autoplay; fullscreen" allowfullscreen />
-                    </div>
+                    </ContainerScroll>
                 </div>
 
             </div>

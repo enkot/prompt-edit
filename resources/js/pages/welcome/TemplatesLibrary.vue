@@ -66,7 +66,7 @@ const tiles: Tile[] = [
 </script>
 
 <template>
-    <section id="templates" class="relative bg-background py-16 sm:py-20">
+    <section id="templates" class="relative bg-[#e5e7eb] py-16 sm:py-20 [--muted-foreground:hsl(0_0%_30%)]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
                 <div class="max-w-2xl">

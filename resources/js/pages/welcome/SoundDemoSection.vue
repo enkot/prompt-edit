@@ -24,7 +24,7 @@ const playing = ref<'muted' | 'loud' | null>(null);
 </script>
 
 <template>
-    <section class="relative bg-background py-16 sm:py-20">
+    <section class="relative bg-[#b6eb27] py-16 sm:py-20 [--muted-foreground:hsl(0_0%_15%)]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
                 <p class="font-mono text-[11px] tracking-[0.3em] uppercase" style="color: var(--accent-cyan);">

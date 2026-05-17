@@ -47,7 +47,9 @@ const dataUrlMask = computed(
 function updateSvgMask() {
   const responsiveFontSize =
     typeof props.fontSize === "number" ? `${props.fontSize}vw` : props.fontSize;
-  svgMask.value = `<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><text x='50%' y='50%' font-size='${responsiveFontSize}' font-weight='${props.fontWeight}' text-anchor='${props.textAnchor}' dominant-baseline='${props.dominantBaseline}' font-family='${props.fontFamily}'>${content.value}</text></svg>`;
+  const x =
+    props.textAnchor === "start" ? "0%" : props.textAnchor === "end" ? "100%" : "50%";
+  svgMask.value = `<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><text x='${x}' y='50%' font-size='${responsiveFontSize}' font-weight='${props.fontWeight}' text-anchor='${props.textAnchor}' dominant-baseline='${props.dominantBaseline}' font-family='${props.fontFamily}'>${content.value}</text></svg>`;
 }
 
 watch(content, updateSvgMask);
@@ -81,11 +83,12 @@ onUnmounted(() => {
       WebkitMaskSize: 'contain',
       maskRepeat: 'no-repeat',
       WebkitMaskRepeat: 'no-repeat',
-      maskPosition: 'center',
-      WebkitMaskPosition: 'center',
+      maskPosition: textAnchor === 'start' ? 'left center' : textAnchor === 'end' ? 'right center' : 'center',
+      WebkitMaskPosition: textAnchor === 'start' ? 'left center' : textAnchor === 'end' ? 'right center' : 'center',
     }">
       <video class="size-full object-cover" :autoplay="autoPlay" :muted="muted" :loop="loop" :preload="preload"
-        playsinline crossorigin="anonymous">
+        playsinline crossorigin="anonymous"
+        style="filter: hue-rotate(-20deg) saturate(1.4) brightness(1.05);">
         <source :src="src" />
         Your browser does not support the video tag.
       </video>
