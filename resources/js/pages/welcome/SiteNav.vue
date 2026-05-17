@@ -54,10 +54,10 @@ onUnmounted(() => {
             </nav>
 
             <div class="hidden items-center gap-2 md:flex">
-                <Link :href="login.url()"
+                <!-- <Link :href="login.url()"
                     class="px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground">
                     Log in
-                </Link>
+                </Link> -->
                 <Link v-if="canRegister" :href="register.url()">
                     <Button size="sm"
                         class="border-2 border-foreground bg-foreground font-bold uppercase tracking-wider text-background hover:bg-background hover:text-foreground">
@@ -82,10 +82,10 @@ onUnmounted(() => {
                     {{ link.label }}
                 </a>
                 <div class="mt-2 grid grid-cols-2 gap-2 border-t border-foreground pt-3">
-                    <Link :href="login.url()"
+                    <!-- <Link :href="login.url()"
                         class="border-2 border-foreground px-3 py-2 text-center text-sm font-bold uppercase tracking-wider text-foreground hover:bg-secondary">
                         Log in
-                    </Link>
+                    </Link> -->
                     <Link v-if="canRegister" :href="register.url()"
                         class="bg-foreground px-3 py-2 text-center text-sm font-bold uppercase tracking-wider text-background">
                         Get started

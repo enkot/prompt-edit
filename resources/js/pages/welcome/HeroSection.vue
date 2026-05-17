@@ -50,13 +50,13 @@ function playVideo() {
                         Pay-as-you-go AI marketplace
                     </div> -->
 
-                    <div class="mt-6 h-[12vw] min-h-[110px] max-h-[220px] w-full">
-                        <VideoText :src="videoTextSrc" :font-size="12" font-weight="800" text-anchor="middle">
-                            Prompt.EDIT
+                    <div class="mt-6 h-[10vw] min-h-[100px] max-h-[220px] w-full">
+                        <VideoText :src="videoTextSrc" :font-size="13" font-weight="800" text-anchor="middle">
+                            Prompt.edit
                         </VideoText>
                     </div>
 
-                    <h1 class=" font-display mx-auto max-w-3xl text-balance text-5xl font-black leading-[0.95]
+                    <h1 class="font-display mx-auto max-w-3xl text-balance text-5xl font-black leading-[0.95]
                             tracking-[-0.04em] text-foreground sm:text-6xl lg:text-6xl">
                         The grocery store for
                         <span class="italic font-light normal-case">AI tools.</span>
