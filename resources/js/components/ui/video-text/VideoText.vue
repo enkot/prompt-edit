@@ -87,8 +87,7 @@ onUnmounted(() => {
       WebkitMaskPosition: textAnchor === 'start' ? 'left center' : textAnchor === 'end' ? 'right center' : 'center',
     }">
       <video class="size-full object-cover" :autoplay="autoPlay" :muted="muted" :loop="loop" :preload="preload"
-        playsinline crossorigin="anonymous"
-        style="filter: hue-rotate(-20deg) saturate(1.4) brightness(1.05);">
+        playsinline crossorigin="anonymous" style="filter: hue-rotate(-20deg) saturate(1.4) brightness(1.05);">
         <source :src="src" />
         Your browser does not support the video tag.
       </video>
