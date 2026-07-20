@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useElementBounding, useScroll, useWindowSize } from "@vueuse/core";
+import { useElementBounding, useWindowScroll, useWindowSize } from "@vueuse/core";
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import ContainerScrollCard from "./ContainerScrollCard.vue";
 import ContainerScrollTitle from "./ContainerScrollTitle.vue";
@@ -21,7 +21,7 @@ onUnmounted(() => {
 });
 
 const { height } = useWindowSize();
-const { y: scrollY } = useScroll(window);
+const { y: scrollY } = useWindowScroll();
 const { bottom } = useElementBounding(containerRef);
 
 const scrollYProgress = computed(() => {

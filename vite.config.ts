@@ -27,7 +27,11 @@ export default defineConfig({
                 }),
             ],
         }),
-        inertia(),
+        inertia({
+            ssr: {
+                entry: 'resources/js/ssr.ts',
+            },
+        }),
         tailwindcss(),
         vue({
             template: {
